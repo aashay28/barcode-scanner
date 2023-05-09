@@ -1,44 +1,31 @@
-import React, { useRef, useEffect, useState } from 'react';
-import Quagga from 'quagga';
+import React, { useState, useEffect } from 'react';
+import Webcam from 'react-webcam';
+import { BrowserMultiFormatReader } from '@zxing/library';
+
 const BarcodeScanner = () => {
-  const videoRef = useRef();
-  const [output, setOutput] = useState();
+  const [result, setResult] = useState('');
+
+  const reader = new BrowserMultiFormatReader();
+
   useEffect(() => {
-    Quagga.init(
-      {
-        inputStream: {
-          name: 'Live',
-          type: 'LiveStream',
-          target: videoRef.current,
-        },
-        decoder: {
-          readers: ['ean_reader'],
-        },
-      },
-      (err) => {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        Quagga.start();
-      }
-    );
-
-    Quagga.onDetected((data) => {
-      console.log(data.codeResult.code);
-      setOutput(data.codeResult.code);
+    reader.decodeFromInputVideoDevice(undefined, 'video').then((result) => {
+      setResult(result.getText());
     });
-
-    return () => {
-      Quagga.stop();
-    };
   }, []);
 
   return (
     <div>
-      <video ref={videoRef} />
-      <br />
-      <div>{output ? output : ''}</div>
+      <Webcam
+        audio={false}
+        id='video'
+        width={640}
+        height={480}
+        screenshotFormat='image/jpeg'
+        videoConstraints={{
+          facingMode: 'environment',
+        }}
+      />
+      <div>{result}</div>
     </div>
   );
 };

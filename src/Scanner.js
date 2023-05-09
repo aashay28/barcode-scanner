@@ -38,8 +38,11 @@ const Scanner = () => {
   }, []);
 
   return (
-    <div>
-      <div id='scanner' style={{ height: '20%', weight: '20%' }}></div>
+    <div className='card-container'>
+      <div
+        id='scanner'
+        style={{ height: '20%', weight: '20%', margin: '1rem' }}
+      ></div>
       <div class='terminal'>
         {uniqueArray.length !== 0 ? (
           uniqueArray?.map((c, i) => (

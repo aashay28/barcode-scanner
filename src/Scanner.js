@@ -37,7 +37,9 @@ const Scanner = () => {
 
   return (
     <>
-      <div id='scanner' style={{ width: '100%', height: '100%' }}></div>
+      {!code && (
+        <div id='scanner' style={{ width: '100%', height: '100%' }}></div>
+      )}
       {code && <p>Code: {code}</p>}
     </>
   );

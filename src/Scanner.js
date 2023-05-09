@@ -34,7 +34,7 @@ const Scanner = ({ setArray, array }) => {
     // };
   }, []);
 
-  return <div id='scanner' className='border-2 border-indigo-600'></div>;
+  return <div id='scanner' className='scanner'></div>;
 };
 
 export default Scanner;

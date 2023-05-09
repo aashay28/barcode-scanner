@@ -1,104 +1,16 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-p {
-  margin: 0;
-}
-
-.spacer {
-  flex: 1;
-}
-
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #1976d2;
-  color: white;
-  font-weight: 600;
-}
-.start-camera-btn {
-  z-index: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #1976d2;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: opacity 0.2s ease-in-out;
-}
-
-h3 {
-  padding-left: 1rem;
-}
-
-.content {
-  display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-container {
-  display: flex;
-
-  justify-content: center;
-  margin-top: 16px;
-}
-
-.terminal {
+.scanner {
   position: relative;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 6px;
-  padding-top: 45px;
-  margin-top: 8px;
-  overflow: hidden;
-  background-color: rgb(15, 15, 16);
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
 }
 
-.terminal::before {
-  content: '\2022 \2022 \2022';
+video {
   position: absolute;
   top: 0;
   left: 0;
-  height: 4px;
-  background: rgb(58, 58, 58);
-  color: #c2c3c4;
-  width: 100%;
-  font-size: 2rem;
-  line-height: 0;
-  padding: 14px 0;
-  text-indent: 4px;
-}
-
-.terminal pre {
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
   color: white;
-  padding: 0 1rem 1rem;
-  margin: 0;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 767px) {
-  .card-container,
-  .terminal {
-    width: 100%;
-  }
-  .card-container {
-    flex-wrap: wrap;
-  }
 }

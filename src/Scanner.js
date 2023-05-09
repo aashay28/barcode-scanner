@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Quagga from 'quagga';
 
-const Scanner = () => {
-  const [array, setArray] = useState([]);
-  const uniqueArray = [...new Set(array)];
-
+const Scanner = ({ setArray, array }) => {
   useEffect(() => {
     Quagga.init(
       {
@@ -37,25 +34,7 @@ const Scanner = () => {
     // };
   }, []);
 
-  return (
-    <div className='card-container'>
-      <div
-        id='scanner'
-        style={{ height: '20%', weight: '20%', margin: '1rem' }}
-      ></div>
-      <div class='terminal'>
-        {uniqueArray.length !== 0 ? (
-          uniqueArray?.map((c, i) => (
-            <pre key={i}>
-              Code {i}: {c}
-            </pre>
-          ))
-        ) : (
-          <pre>No Barcode Scanned</pre>
-        )}
-      </div>
-    </div>
-  );
+  return <div id='scanner' className='border-2 border-indigo-600'></div>;
 };
 
 export default Scanner;

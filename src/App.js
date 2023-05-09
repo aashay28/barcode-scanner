@@ -56,27 +56,26 @@ const App = () => {
             {/* <!-- Container --> */}
             <div className='h-full w-full p-16 gap-10 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll'>
               {/* <!-- Container --> */}
-              <div className='w-12 h-60 rounded-lg flex-shrink-1 flex-grow p-1'>
+              <div className='w-36 h-36 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow  p-3'>
                 {showScanner ? (
                   <Scanner setArray={setArray} array={array} />
                 ) : (
-                  'No Preview'
+                  <div className='w-36 h-60 rounded-lg flex-shrink-0 flex-grow '>
+                    Scan to start
+                  </div>
                 )}
               </div>
-              {uniqueArray.length !== 0 ? (
-                uniqueArray?.map((c, i) => (
-                  <div
-                    key={i}
-                    className='w-12 h-10 rounded-lg flex-shrink-0 flex-grow bg-gray-400 p-2'
-                  >
-                    Code {i}: {c}
-                  </div>
-                ))
-              ) : (
-                <div className='w-96 h-10 rounded-lg flex-shrink-0 flex-grow bg-gray-400 p-2'>
-                  No Barcode Scanned
-                </div>
-              )}
+              <div className='w-36 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow bg-gray-200 p-3'>
+                {uniqueArray.length !== 0 ? (
+                  uniqueArray?.map((c, i) => (
+                    <div key={i}>
+                      Code {i}: {c}
+                    </div>
+                  ))
+                ) : (
+                  <div className='bg-400'>No Data Available</div>
+                )}
+              </div>
             </div>
           </main>
         </div>

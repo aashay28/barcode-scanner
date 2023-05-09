@@ -39,17 +39,18 @@ const Scanner = () => {
 
   return (
     <div>
-      {<div id='scanner' style={{ border: '2px solid black' }}></div>}
-      <div class='terminal'>
-        {uniqueArray.length !== 0 ? (
-          uniqueArray?.map((c, i) => (
-            <pre key={i}>
-              Code {i}: {c}
-            </pre>
-          ))
-        ) : (
-          <pre>No Barcode Scanned</pre>
-        )}
+      <div className='main' id='scanner'>
+        <div class='terminal'>
+          {uniqueArray.length !== 0 ? (
+            uniqueArray?.map((c, i) => (
+              <pre key={i}>
+                Code {i}: {c}
+              </pre>
+            ))
+          ) : (
+            <pre>No Barcode Scanned</pre>
+          )}
+        </div>
       </div>
     </div>
   );

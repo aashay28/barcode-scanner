@@ -9,7 +9,9 @@
   cursor: pointer;
   transition: opacity 0.2s ease-in-out;
 }
-
+.main {
+  padding: 2rem;
+}
 h1,
 h2,
 h3,

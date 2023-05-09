@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Quagga from 'quagga';
 
 const Scanner = () => {
-  const [code, setCode] = useState('');
   const [array, setArray] = useState([]);
   const uniqueArray = [...new Set(array)];
 
@@ -28,7 +27,6 @@ const Scanner = () => {
     );
 
     Quagga.onDetected((data) => {
-      setCode(data.codeResult.code);
       if (!array.includes(data.codeResult.code)) {
         setArray((prevState) => [...prevState, data.codeResult.code]);
       }
@@ -40,8 +38,8 @@ const Scanner = () => {
   }, []);
 
   return (
-    <div style={{ padding: '2rem' }}>
-      {<div id='scanner' style={{ width: '20%', height: '20%' }}></div>}
+    <div>
+      {<div id='scanner' style={{ border: '2px solid black' }}></div>}
       <div class='terminal'>
         {uniqueArray.length !== 0 ? (
           uniqueArray?.map((c, i) => (

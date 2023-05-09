@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Scanner from './Scanner';
-import Quagga from 'quagga';
+
 const App = () => {
   const [showScanner, setShowScanner] = useState(false);
   const [array, setArray] = useState([]);

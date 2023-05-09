@@ -11,12 +11,12 @@ const App = () => {
 
   return (
     <div>
-      <div class='toolbar' role='banner'>
+      <div className='toolbar' role='banner'>
         <h3>Barcode Scanner</h3>
-        <div class='spacer'></div>
+        <div className='spacer'></div>
       </div>
 
-      <div class='content' role='main'>
+      <div className='content' role='main'>
         <input type='hidden' />
         {!showScanner && (
           <button className='start-camera-btn' onClick={handleStartButtonClick}>

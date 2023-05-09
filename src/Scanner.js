@@ -27,19 +27,16 @@ const Scanner = () => {
 
     Quagga.onDetected((data) => {
       setCode(data.codeResult.code);
-      Quagga.stop();
     });
 
-    return () => {
-      Quagga.stop();
-    };
+    // return () => {
+    //   Quagga.stop();
+    // };
   }, []);
 
   return (
     <>
-      {!code && (
-        <div id='scanner' style={{ width: '100%', height: '100%' }}></div>
-      )}
+      {<div id='scanner' style={{ width: '100%', height: '100%' }}></div>}
       {code && <p>Code: {code}</p>}
     </>
   );

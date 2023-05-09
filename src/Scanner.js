@@ -4,7 +4,11 @@ import Quagga from 'quagga';
 const Scanner = () => {
   const [code, setCode] = useState('');
   const [array, setArray] = useState([]);
-
+  const addItem = (newItem) => {
+    if (!array.includes(newItem)) {
+      setArray([...array, newItem]);
+    }
+  };
   useEffect(() => {
     Quagga.init(
       {
@@ -28,9 +32,7 @@ const Scanner = () => {
 
     Quagga.onDetected((data) => {
       setCode(data.codeResult.code);
-      if (!array.includes(data.codeResult.code)) {
-        setArray((prevState) => prevState.concat(data.codeResult.code));
-      }
+      addItem(data.codeResult.code);
     });
 
     // return () => {

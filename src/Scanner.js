@@ -6,7 +6,7 @@ const Scanner = () => {
   const [array, setArray] = useState([]);
   const addItem = (newItem) => {
     if (!array.includes(newItem)) {
-      setArray([...array, newItem]);
+      setArray((prevState) => [...prevState, newItem]);
     }
   };
   useEffect(() => {

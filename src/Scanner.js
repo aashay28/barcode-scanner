@@ -9,7 +9,7 @@ const Scanner = ({ setArray, array }) => {
           width: { min: 640 },
           height: { min: 480 },
           facingMode: 'environment',
-          aspectRatio: { min: 1, max: 2 },
+          aspectRatio: { min: 16, max: 9 },
           // Set landscape mode
           orientation: 'landscape',
         },

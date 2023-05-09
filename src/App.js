@@ -1,13 +1,22 @@
 import './App.css';
-import BarcodeScanner from './BarcodeScanner';
+import React, { useState } from 'react';
+import Scanner from './Scanner';
 
-function App() {
+const App = () => {
+  const [showScanner, setShowScanner] = useState(false);
+
+  const handleStartButtonClick = () => {
+    setShowScanner(true);
+  };
+
   return (
-    <div className='App'>
-      <h1>Barcode Scanner</h1>
-      <BarcodeScanner />
+    <div>
+      {!showScanner && (
+        <button onClick={handleStartButtonClick}>Start Scanner</button>
+      )}
+      {showScanner && <Scanner />}
     </div>
   );
-}
+};
 
 export default App;

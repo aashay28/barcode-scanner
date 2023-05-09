@@ -1,7 +1,5 @@
 .scanner {
   position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
 }
 
 video {
@@ -13,4 +11,6 @@ video {
   text-align: center;
   font-size: 20px;
   color: white;
+  aspect-ratio: 16/9;
+  border: 1px solid #b32222;
 }

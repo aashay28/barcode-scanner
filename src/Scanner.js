@@ -28,7 +28,9 @@ const Scanner = () => {
 
     Quagga.onDetected((data) => {
       setCode(data.codeResult.code);
-      setArray((oldArray) => [...oldArray, data.codeResult.code]);
+      if (!array.includes(data.codeResult.code)) {
+        setArray((oldArray) => [...oldArray, data.codeResult.code]);
+      }
     });
 
     // return () => {
@@ -37,15 +39,15 @@ const Scanner = () => {
   }, []);
 
   return (
-    <>
+    <div style={{ padding: '2rem' }}>
       {<div id='scanner' style={{ width: '20%', height: '20%' }}></div>}
-      {<div>current scanned code: {code}</div>}
+
       {array?.map((c, i) => (
         <p key={i}>
           Code {i}: {c}
         </p>
       ))}
-    </>
+    </div>
   );
 };
 

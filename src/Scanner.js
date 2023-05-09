@@ -37,10 +37,10 @@ const Scanner = () => {
 
   return (
     <>
-      {<div id='scanner' style={{ width: '50%', height: '50%' }}></div>}
-      {code.length !== 0
-        ? code.map((c, i) => <p key={i}>Code: {c}</p>)
-        : 'No Barcode to display'}
+      {<div id='scanner' style={{ width: '20%', height: '20%' }}></div>}
+      {code?.map((c, i) => (
+        <p key={i}>Code: {c}</p>
+      ))}
     </>
   );
 };

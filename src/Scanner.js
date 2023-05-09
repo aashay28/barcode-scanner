@@ -5,18 +5,18 @@ const Scanner = ({ setArray, array }) => {
   useEffect(() => {
     Quagga.init(
       {
-        constraints: {
-          width: { min: 640 },
-          height: { min: 480 },
-          facingMode: 'environment',
-          aspectRatio: { min: 16, max: 9 },
-          // Set landscape mode
-          orientation: 'landscape',
-        },
         inputStream: {
           name: 'Live',
           type: 'LiveStream',
           target: document.querySelector('#scanner'),
+          constraints: {
+            width: { min: 640 },
+            height: { min: 480 },
+            facingMode: 'environment',
+            aspectRatio: { min: 16, max: 9 },
+            // Set landscape mode
+            orientation: 'landscape',
+          },
         },
         decoder: {
           readers: ['ean_reader'],

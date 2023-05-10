@@ -35,8 +35,8 @@ const Scanner = ({ setArray, array }) => {
           type: 'LiveStream',
           target: document.querySelector('#scanner'),
           constraints: {
-            width: { min: 640, ideal: 640, max: 1920 },
-            height: { min: 360, ideal: 360, max: 1080 },
+            width: { min: 320, ideal: 640, max: 1920 },
+            height: { min: 130, ideal: 360, max: 1080 },
             aspectRatio: 16 / 9,
 
             facingMode: 'environment',

@@ -54,26 +54,70 @@ const App = () => {
           {/* <!-- Main --> */}
           <main className='max-w-full h-full flex relative overflow-y-hidden'>
             {/* <!-- Container --> */}
-            <div className='h-full w-full p-16 gap-10 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll'>
+            <div className='h-full w-full p-4 gap-10 lg:p-16 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll'>
               {/* <!-- Container --> */}
               <div className='w-36 h-36 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow  p-3'>
                 {showScanner ? (
                   <Scanner setArray={setArray} array={array} />
                 ) : (
-                  <div className='w-36 h-60 rounded-lg flex-shrink-0 flex-grow '>
-                    Scan to start
+                  <div className='ml-2 flex-shrink-0 flex'>
+                    <p className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800'>
+                      Scan to Start
+                    </p>
                   </div>
                 )}
               </div>
-              <div className='w-36 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow bg-gray-200 p-3'>
+
+              <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow bg-gray-200 p-3'>
                 {uniqueArray.length !== 0 ? (
                   uniqueArray?.map((c, i) => (
                     <div key={i}>
-                      Code {i}: {c}
+                      <div className='bg-white shadow overflow-hidden sm:rounded-md'>
+                        <ul className='divide-y divide-gray-200'>
+                          <li>
+                            <div className='px-4 py-4 sm:px-6'>
+                              <div className='flex items-center justify-between'>
+                                <p className='text-sm font-medium text-indigo-600 truncate'>
+                                  {c}
+                                </p>
+                                <div className='ml-2 flex-shrink-0 flex'>
+                                  <p className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
+                                    Scanned
+                                  </p>
+                                </div>
+                              </div>
+                              <div className='mt-2 sm:flex sm:justify-between'>
+                                <div className='sm:flex'>
+                                  <p className='flex items-center text-sm text-gray-500'>
+                                    {i}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   ))
                 ) : (
-                  <div className='bg-400'>No Data Available</div>
+                  <div className='bg-white shadow overflow-hidden sm:rounded-md'>
+                    <ul className='divide-y divide-gray-200'>
+                      <li>
+                        <div className='px-4 py-4 sm:px-6'>
+                          <div className='flex items-center justify-between'>
+                            <p className='text-sm font-medium text-indigo-600 truncate'>
+                              #
+                            </p>
+                            <div className='ml-2 flex-shrink-0 flex'>
+                              <p className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800'>
+                                Not Scanned Yet
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 )}
               </div>
             </div>

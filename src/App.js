@@ -72,10 +72,10 @@ const App = () => {
 
             <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3 max-[375px]:mt-16 md:mt-0 lg:mt-0'>
               <section className='container px-4 mx-auto'>
-                <div className='flex flex-col'>
+                <div className='flex flex-col overflow-y-auto'>
                   <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
-                    <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
-                      <div className='overflow-hidden border border-gray-200 md:rounded-lg'>
+                    <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 '>
+                      <div className='border border-gray-200 md:rounded-lg'>
                         <table className='min-w-full divide-y divide-gray-200 '>
                           <thead className='bg-gray-50 '>
                             <tr>

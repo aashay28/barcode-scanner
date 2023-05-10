@@ -11,7 +11,7 @@ const Scanner = ({ setArray, array }) => {
           target: document.querySelector('#scanner'),
           constraints: {
             width: 640,
-            height: 420,
+            height: 220,
             // aspectRatio: 16 / 9,
             facingMode: 'environment',
           },

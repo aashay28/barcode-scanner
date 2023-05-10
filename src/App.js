@@ -13,7 +13,7 @@ const App = () => {
   const displayProduct = productDetails.filter((val) =>
     uniqueArray.includes(val.barcode)
   );
-  console.log('displayProduct', displayProduct);
+
   return (
     <>
       <div className='h-screen w-full bg-white relative flex overflow-hidden '>

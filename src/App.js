@@ -11,8 +11,8 @@ const App = () => {
   const handleStartButtonClick = () => {
     setShowScanner(true);
   };
-  const displayProduct = productDetails.filter(
-    (val) => !uniqueArray.includes(val.barcode)
+  const displayProduct = productDetails.filter((val) =>
+    uniqueArray.includes(val.barcode)
   );
 
   return (

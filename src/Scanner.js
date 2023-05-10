@@ -1,7 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Quagga from 'quagga';
 
 const Scanner = ({ setArray, array }) => {
+  const [cameraWidth, setCameraWidth] = useState('90%');
+  const [cameraHeight, setCameraHeight] = useState('60%');
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setCameraWidth('100');
+      setCameraHeight('50');
+    }
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setCameraWidth('100');
+        setCameraHeight('50');
+      } else {
+        setCameraWidth('90%');
+        setCameraHeight('60%');
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   useEffect(() => {
     Quagga.init(
       {
@@ -10,8 +35,8 @@ const Scanner = ({ setArray, array }) => {
           type: 'LiveStream',
           target: document.querySelector('#scanner'),
           constraints: {
-            width: { min: 350 },
-            height: { min: 150 },
+            width: cameraWidth,
+            height: cameraHeight,
             facingMode: 'environment',
             aspectRatio: { min: 1, max: 2 },
           },
@@ -46,7 +71,7 @@ const Scanner = ({ setArray, array }) => {
     // };
   }, []);
 
-  return <div id='scanner' className='border border-indigo-600'></div>;
+  return <div id='scanner' className='scanner border border-indigo-600'></div>;
 };
 
 export default Scanner;

@@ -35,9 +35,10 @@ const Scanner = ({ setArray, array }) => {
           type: 'LiveStream',
           target: document.querySelector('#scanner'),
           constraints: {
-            width: { min: 90, ideal: 90, max: 1920 },
-            height: { min: 60, ideal: 60, max: 1080 },
+            width: { min: 640, ideal: 640, max: 1920 },
+            height: { min: 360, ideal: 360, max: 1080 },
             aspectRatio: 16 / 9,
+
             facingMode: 'environment',
           },
         },
@@ -65,7 +66,7 @@ const Scanner = ({ setArray, array }) => {
     // };
   }, []);
 
-  return <div id='scanner' className='scanner border border-indigo-600'></div>;
+  return <div id='scanner' className='scanner'></div>;
 };
 
 export default Scanner;

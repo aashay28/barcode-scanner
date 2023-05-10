@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <>
-      <div className='h-screen w-full bg-white relative flex  overflow-hidden'>
+      <div className='h-screen w-full bg-white relative flex '>
         <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white'>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             S
@@ -36,7 +36,7 @@ const App = () => {
           </div>
         </aside>
 
-        <div className='w-full h-full flex flex-col  bg-gray-100 overflow-hidden'>
+        <div className='w-full h-full flex flex-col  bg-gray-100 '>
           <main className='max-w-full h-full flex flex-col md:flex-row lg:flex-row relative overflow-hidden mt-14 m-7'>
             <div className='rounded-lg flex-shrink-0 flex-grow  p-2 justify-center items-center  w-80 lg:w-10'>
               {showScanner ? (
@@ -71,8 +71,8 @@ const App = () => {
             </div>
 
             <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3 max-[375px]:mt-16 md:mt-0 lg:mt-0'>
-              <section className='container px-4 mx-auto'>
-                <div className='flex flex-col overflow-y-auto'>
+              <section className='container px-4 mx-auto '>
+                <div className='flex flex-col overflow-y-auto overflow-hidden'>
                   <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                     <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 '>
                       <div className='border border-gray-200 md:rounded-lg'>

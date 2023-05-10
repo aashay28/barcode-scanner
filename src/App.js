@@ -13,26 +13,26 @@ const App = () => {
   return (
     <>
       <div className='h-screen w-full bg-white relative flex overflow-hidden '>
-        <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white'>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white'>
+        <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-indigo-500'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
             B
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
             A
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
             R
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
             C
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
             O
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
             D
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
             E
           </div>
         </aside>
@@ -42,7 +42,7 @@ const App = () => {
             <div className='flex flex-shrink-0 items-center space-x-4 text-white'>
               {!showScanner && (
                 <button
-                  className='start-camera-btn'
+                  className='bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-1 px-2 rounded-md shadow-md focus:outline-none transform-gpu transition-all duration-300 ease-in-out'
                   onClick={handleStartButtonClick}
                 >
                   Start Scanner

@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <>
-      <div className='h-screen w-full bg-white relative flex overflow-hidden '>
+      <div className='h-screen w-full bg-white relative flex  '>
         <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white'>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             S
@@ -36,9 +36,9 @@ const App = () => {
           </div>
         </aside>
 
-        <div className='w-full h-full flex flex-col  bg-gray-100'>
+        <div className='w-full h-full flex flex-col  bg-gray-100 '>
           {/* <!-- Main --> */}
-          <main className='max-w-full h-full flex flex-col md:flex-row lg:flex-row relative overflow-y-hidden mt-14'>
+          <main className='max-w-full h-full flex flex-col md:flex-row lg:flex-row relative overflow-hidden mt-14'>
             {/* <!-- Container --> */}
 
             {/* <!-- Container --> */}
@@ -75,7 +75,7 @@ const App = () => {
             </div>
 
             <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3 max-[375px]:mt-16 md:mt-0 lg:mt-0'>
-              <Table />
+              <Table displayProduct={displayProduct} />
             </div>
             {/* <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3 max-[375px]:mt-16 md:mt-0 lg:mt-0'>
                 {displayProduct?.length !== 0 ? (

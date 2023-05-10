@@ -1,5 +1,9 @@
 .scanner {
   position: relative;
+  transform: 'translate(-50%, -50%)';
+  width: '90%';
+  height: '60%';
+  border: '2px solid white';
 }
 
 video {

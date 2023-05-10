@@ -1,32 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Quagga from 'quagga';
 
 const Scanner = ({ setArray, array }) => {
-  const [cameraWidth, setCameraWidth] = useState('90%');
-  const [cameraHeight, setCameraHeight] = useState('60%');
-  useEffect(() => {
-    if (window.innerWidth <= 768) {
-      setCameraWidth('100');
-      setCameraHeight('50');
-    }
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setCameraWidth('100');
-        setCameraHeight('50');
-      } else {
-        setCameraWidth('90%');
-        setCameraHeight('60%');
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
   useEffect(() => {
     Quagga.init(
       {
@@ -35,8 +10,8 @@ const Scanner = ({ setArray, array }) => {
           type: 'LiveStream',
           target: document.querySelector('#scanner'),
           constraints: {
-            width: { min: 420, ideal: 420, max: 1920 },
-            height: { min: 130, ideal: 130, max: 1080 },
+            width: 640,
+            height: 420,
             // aspectRatio: 16 / 9,
             facingMode: 'environment',
           },

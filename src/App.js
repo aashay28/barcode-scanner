@@ -52,7 +52,7 @@ const App = () => {
           </header>
 
           {/* <!-- Main --> */}
-          <main className='max-w-full h-full flex relative overflow-y-hidden'>
+          <main className='max-w-full h-full flex relative overflow-y-hidden bg-gray-100'>
             {/* <!-- Container --> */}
             <div className='h-full w-full p-4 gap-10 lg:p-16 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll'>
               {/* <!-- Container --> */}
@@ -68,7 +68,7 @@ const App = () => {
                 )}
               </div>
 
-              <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow bg-gray-200 p-3'>
+              <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3'>
                 {uniqueArray.length !== 0 ? (
                   uniqueArray?.map((c, i) => (
                     <div key={i}>

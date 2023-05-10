@@ -11,8 +11,8 @@ const App = () => {
   const handleStartButtonClick = () => {
     setShowScanner(true);
   };
-  const displayProduct = productDetails.filter((val) =>
-    uniqueArray.includes(val.barcode)
+  const displayProduct = productDetails.filter(
+    (val) => !uniqueArray.includes(val.barcode)
   );
 
   return (
@@ -36,13 +36,8 @@ const App = () => {
           </div>
         </aside>
 
-        <div className='w-full h-full flex flex-col  bg-gray-100 overflow-hidden '>
-          {/* <!-- Main --> */}
-          <main className='max-w-full h-full flex flex-col md:flex-row lg:flex-row relative overflow-hidden mt-14'>
-            {/* <!-- Container --> */}
-
-            {/* <!-- Container --> */}
-
+        <div className='w-full h-full flex flex-col  bg-gray-100 overflow-hidden'>
+          <main className='max-w-full h-full flex flex-col md:flex-row lg:flex-row relative overflow-hidden mt-14 m-7'>
             <div className='rounded-lg flex-shrink-0 flex-grow  p-2 justify-center items-center  w-80 lg:w-10'>
               {showScanner ? (
                 <Scanner setArray={setArray} array={array} />
@@ -80,19 +75,19 @@ const App = () => {
                 <div className='flex flex-col'>
                   <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                     <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
-                      <div className='overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg'>
-                        <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-700'>
-                          <thead className='bg-gray-50 dark:bg-gray-800'>
+                      <div className='overflow-hidden border border-gray-200 md:rounded-lg'>
+                        <table className='min-w-full divide-y divide-gray-200 '>
+                          <thead className='bg-gray-50 '>
                             <tr>
                               <th
                                 scope='col'
-                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                               >
                                 Product Details
                               </th>
                               <th
                                 scope='col'
-                                className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                                className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500'
                               >
                                 <div className='flex items-center gap-x-3'>
                                   <button className='flex items-center gap-x-2'>
@@ -103,31 +98,30 @@ const App = () => {
 
                               <th
                                 scope='col'
-                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                               >
                                 Count
                               </th>
 
                               <th
                                 scope='col'
-                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                               >
                                 Rating
                               </th>
 
                               <th
                                 scope='col'
-                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
+                                className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                               >
                                 Categories
                               </th>
                             </tr>
                           </thead>
-                          <tbody className='bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900'>
+                          <tbody className='bg-white divide-y divide-gray-200 '>
                             {displayProduct?.map((product) => (
                               <tr key={product.id}>
-                                {/* Customer */}
-                                <td className='px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap'>
+                                <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
                                   <div className='flex items-center gap-x-2'>
                                     <img
                                       className='object-cover w-8 h-8 rounded-full'
@@ -135,36 +129,41 @@ const App = () => {
                                       alt=''
                                     />
                                     <div>
-                                      <h2 className='text-sm font-medium text-gray-800 dark:text-white '>
+                                      <h2 className='text-sm font-medium text-gray-800  '>
                                         {product?.title}
                                       </h2>
-                                      <p className='text-xs font-normal text-gray-600 dark:text-gray-400'>
+                                      <p className='text-xs font-normal text-gray-600'>
                                         {product?.barcode}
                                       </p>
                                     </div>
                                   </div>
                                 </td>
-                                {/* Price */}
-                                <td className='px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap'>
+
+                                <td className='px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap'>
                                   <div className='inline-flex items-center gap-x-3'>
                                     <span>$ {product?.price}</span>
                                   </div>
                                 </td>
-                                {/* Date */}
-                                <td className='px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap'>
+
+                                <td className='px-4 py-4 text-sm text-gray-500 whitespace-nowrap'>
                                   {product?.rating?.count}
                                 </td>
-                                {/* Rating */}
+
                                 <td className='px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap'>
-                                  <div className='inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800'>
+                                  <div
+                                    className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2 ${
+                                      product?.rating?.rate < 3
+                                        ? 'text-red-500 bg-red-100/60'
+                                        : 'text-emerald-500 bg-emerald-100/60'
+                                    }`}
+                                  >
                                     <h2 className='text-sm font-normal'>
                                       {product?.rating?.rate}
                                     </h2>
                                   </div>
                                 </td>
 
-                                {/* Purchase */}
-                                <td className='px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap'>
+                                <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
                                   {product?.category}
                                 </td>
                               </tr>
@@ -177,59 +176,6 @@ const App = () => {
                 </div>
               </section>
             </div>
-            {/* <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3 max-[375px]:mt-16 md:mt-0 lg:mt-0'>
-                {displayProduct?.length !== 0 ? (
-                  displayProduct?.map((c, i) => (
-                    <div
-                      key={i}
-                      className='bg-white shadow overflow-hidden sm:rounded-md'
-                    >
-                      <ul className='divide-y divide-gray-200'>
-                        <li>
-                          <div className='px-4 py-4 sm:px-6'>
-                            <div className='flex items-center justify-between'>
-                              <p className='text-sm font-medium text-indigo-600 truncate'>
-                                {c?.title}
-                              </p>
-                              <div className='ml-2 flex-shrink-0 flex'>
-                                <p className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
-                                  {c?.price}
-                                </p>
-                              </div>
-                            </div>
-                            <div className='mt-2 sm:flex sm:justify-between'>
-                              <div className='sm:flex'>
-                                <p className='flex items-center text-sm text-gray-500'>
-                                  {c?.barcode}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  ))
-                ) : (
-                  <div className='bg-white shadow overflow-hidden sm:rounded-md'>
-                    <ul className='divide-y divide-gray-200'>
-                      <li>
-                        <div className='px-4 py-4 sm:px-6'>
-                          <div className='flex items-center justify-between'>
-                            <p className='text-sm font-medium text-indigo-600 truncate'>
-                              #
-                            </p>
-                            <div className='ml-2 flex-shrink-0 flex'>
-                              <p className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800'>
-                                Not Scanned Yet
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div> */}
           </main>
         </div>
       </div>

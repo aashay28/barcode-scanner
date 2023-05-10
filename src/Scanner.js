@@ -10,8 +10,8 @@ const Scanner = ({ setArray, array }) => {
           type: 'LiveStream',
           target: document.querySelector('#scanner'),
           constraints: {
-            width: { min: 650 },
-            height: { min: 300 },
+            width: { min: 350 },
+            height: { min: 150 },
             facingMode: 'environment',
             aspectRatio: { min: 1, max: 2 },
           },

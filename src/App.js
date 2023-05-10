@@ -1,14 +1,20 @@
 import './App.css';
 import React, { useState } from 'react';
 import Scanner from './Scanner';
-
+import productDetails from './database/barcode.json';
 const App = () => {
   const [showScanner, setShowScanner] = useState(false);
   const [array, setArray] = useState([]);
   const uniqueArray = [...new Set(array)];
+
   const handleStartButtonClick = () => {
     setShowScanner(true);
   };
+  const displayProduct = productDetails.map((val) => {
+    if (uniqueArray.includes(val.barcode)) {
+      return val;
+    }
+  });
 
   return (
     <>
@@ -69,8 +75,8 @@ const App = () => {
               </div>
 
               <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3'>
-                {uniqueArray.length !== 0 ? (
-                  uniqueArray?.map((c, i) => (
+                {uniqueArray?.length !== 0 ? (
+                  displayProduct?.map((c, i) => (
                     <div
                       key={i}
                       className='bg-white shadow overflow-hidden sm:rounded-md'
@@ -80,18 +86,18 @@ const App = () => {
                           <div className='px-4 py-4 sm:px-6'>
                             <div className='flex items-center justify-between'>
                               <p className='text-sm font-medium text-indigo-600 truncate'>
-                                {c}
+                                {c?.title}
                               </p>
                               <div className='ml-2 flex-shrink-0 flex'>
                                 <p className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
-                                  Scanned
+                                  {c?.price}
                                 </p>
                               </div>
                             </div>
                             <div className='mt-2 sm:flex sm:justify-between'>
                               <div className='sm:flex'>
                                 <p className='flex items-center text-sm text-gray-500'>
-                                  {i}
+                                  {c?.barcode}
                                 </p>
                               </div>
                             </div>

@@ -10,33 +10,25 @@ const App = () => {
   const handleStartButtonClick = () => {
     setShowScanner(true);
   };
-  const displayProduct = productDetails.map((val) => {
-    if (uniqueArray.includes(val.barcode)) {
-      return val;
-    }
-  });
-
+  const displayProduct = productDetails.filter((val) =>
+    uniqueArray.includes(val.barcode)
+  );
+  console.log('displayProduct', displayProduct);
   return (
     <>
       <div className='h-screen w-full bg-white relative flex overflow-hidden '>
         <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white'>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
-            B
+            S
           </div>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
-            A
-          </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
-            R
-          </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
-            C
+            T
           </div>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             O
           </div>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
-            D
+            R
           </div>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             E
@@ -75,7 +67,7 @@ const App = () => {
               </div>
 
               <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3'>
-                {uniqueArray?.length !== 0 ? (
+                {displayProduct?.length !== 0 ? (
                   displayProduct?.map((c, i) => (
                     <div
                       key={i}

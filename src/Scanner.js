@@ -35,17 +35,11 @@ const Scanner = ({ setArray, array }) => {
           type: 'LiveStream',
           target: document.querySelector('#scanner'),
           constraints: {
-            width: cameraWidth,
-            height: cameraHeight,
+            width: { min: 120, ideal: 640, max: 1920 },
+            height: { min: 50, ideal: 420, max: 1080 },
+            aspectRatio: 16 / 9,
             facingMode: 'environment',
-            aspectRatio: { min: 1, max: 2 },
           },
-          locator: {
-            patchSize: 'medium',
-            halfSample: true,
-          },
-          numOfWorkers: 2,
-          frequency: 10,
         },
         decoder: {
           readers: ['ean_reader'],

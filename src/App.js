@@ -39,7 +39,7 @@ const App = () => {
           {/* <!-- Main --> */}
           <main className='max-w-full h-full flex relative overflow-y-hidden bg-gray-100'>
             {/* <!-- Container --> */}
-            <div className='h-full w-full gap-4 p-2 lg:p-16 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max overflow-y-scroll'>
+            <div className='h-full w-full gap-14 p-2 lg:p-16 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max overflow-y-scroll'>
               {/* <!-- Container --> */}
 
               <div className='w-36 h-36 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow  p-3'>

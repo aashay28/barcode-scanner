@@ -36,37 +36,46 @@ const App = () => {
         </aside>
 
         <div className='w-full h-full flex flex-col justify-between'>
-          <header className='h-16 w-full flex items-center relative justify-end  space-x-10 bg-gray-800 px-12 md:px-6 lg:px-6'>
-            <div className='flex flex-shrink-0 items-center space-x-4 text-white'>
-              {!showScanner && (
-                <button
-                  className='bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-1 px-2 rounded-md shadow-md focus:outline-none transform-gpu transition-all duration-300 ease-in-out'
-                  onClick={handleStartButtonClick}
-                >
-                  Start Scanner
-                </button>
-              )}
-            </div>
-          </header>
-
           {/* <!-- Main --> */}
           <main className='max-w-full h-full flex relative overflow-y-hidden bg-gray-100'>
             {/* <!-- Container --> */}
-            <div className='h-full w-full p-4 gap-10 lg:p-16 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll'>
+            <div className='h-full w-full gap-4 p-2 lg:p-16 flex flex-wrap items-start justify-start rounded-tl grid-flow-col auto-cols-max overflow-y-scroll'>
               {/* <!-- Container --> */}
+
               <div className='w-36 h-36 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow  p-3'>
                 {showScanner ? (
                   <Scanner setArray={setArray} array={array} />
                 ) : (
-                  <div className='ml-2 flex-shrink-0 flex'>
-                    <p className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800'>
-                      Scan to Start
-                    </p>
-                  </div>
+                  <section className='max-w-xl mx-auto px-4 sm:px-8 lg:px-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1'>
+                      <div className='w-full bg-gray-900 rounded-lg sahdow-lg p-2 lg:p-12 flex flex-col justify-center items-center'>
+                        <div className='mb-8'>
+                          <img
+                            className='object-center object-cover rounded-full h-36 w-36'
+                            src='https://static.vecteezy.com/system/resources/previews/007/399/285/non_2x/barcode-glyph-circle-gradient-background-icon-vector.jpg'
+                          />
+                        </div>
+                        <div className='text-center mb-4'>
+                          <p className='text-xl text-white font-bold mb-2'>
+                            Barcode Scanner
+                          </p>
+                          <p className='text-base text-gray-400 font-normal'>
+                            Want to scan the product details ?
+                          </p>
+                        </div>
+                        <div
+                          onClick={handleStartButtonClick}
+                          className='mb-2 border-2 border-green-600 rounded-lg px-2 py-1 text-green-400 cursor-pointer hover:bg-green-600 hover:text-green-200'
+                        >
+                          Click here
+                        </div>
+                      </div>
+                    </div>
+                  </section>
                 )}
               </div>
 
-              <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3'>
+              <div className='w-62 h-12 lg:w-96 h-60 rounded-lg flex-shrink-0 flex-grow p-3 max-[375px]:mt-16 md:mt-0 lg:mt-0'>
                 {displayProduct?.length !== 0 ? (
                   displayProduct?.map((c, i) => (
                     <div

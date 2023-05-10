@@ -13,26 +13,26 @@ const App = () => {
   return (
     <>
       <div className='h-screen w-full bg-white relative flex overflow-hidden '>
-        <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-indigo-500'>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
+        <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             B
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             A
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             R
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             C
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             O
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             D
           </div>
-          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-indigo-700  hover:duration-300 hover:ease-linear focus:bg-white'>
+          <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             E
           </div>
         </aside>

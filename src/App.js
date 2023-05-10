@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <>
-      <div className='h-screen w-full bg-white relative flex  '>
+      <div className='h-screen w-full bg-white relative flex  overflow-hidden'>
         <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white'>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>
             S
@@ -36,7 +36,7 @@ const App = () => {
           </div>
         </aside>
 
-        <div className='w-full h-full flex flex-col  bg-gray-100 '>
+        <div className='w-full h-full flex flex-col  bg-gray-100 overflow-hidden '>
           {/* <!-- Main --> */}
           <main className='max-w-full h-full flex flex-col md:flex-row lg:flex-row relative overflow-hidden mt-14'>
             {/* <!-- Container --> */}
@@ -51,6 +51,7 @@ const App = () => {
                   <div className='w-full bg-gray-900 rounded-lg sahdow-lg p-2 lg:p-12 flex flex-col justify-center items-center'>
                     <div className='mb-8'>
                       <img
+                        alt=''
                         className='object-center object-cover rounded-full h-36 w-36'
                         src='https://static.vecteezy.com/system/resources/previews/007/399/285/non_2x/barcode-glyph-circle-gradient-background-icon-vector.jpg'
                       />

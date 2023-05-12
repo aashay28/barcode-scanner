@@ -9,7 +9,7 @@ import { MdOutlineClose } from 'react-icons/md';
 import { HiAnnotation } from 'react-icons/hi';
 import styles from './Notify.module.css';
 const App = () => {
-  const notify = () =>
+  const notify = (message) =>
     toast.custom(
       (t) => (
         <div
@@ -22,7 +22,7 @@ const App = () => {
             <HiAnnotation />
           </div>
           <div className={styles.contentWrapper}>
-            <h1>Product not found</h1>
+            <h1>{message}</h1>
             <p>Please scan the other barcode to list details</p>
           </div>
           <div className={styles.closeIcon} onClick={() => toast.dismiss(t.id)}>
@@ -47,11 +47,9 @@ const App = () => {
   useEffect(() => {
     displayProduct.forEach((item) => {
       if (uniqueArray.includes(item.barcode)) {
-        notify();
-        return;
+        notify('Product already listed');
       } else {
-        notify();
-        return;
+        notify('Product not found');
       }
     });
   }, [uniqueArray]);

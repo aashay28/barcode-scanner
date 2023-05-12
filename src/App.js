@@ -19,6 +19,9 @@ const App = () => {
       if (!uniqueArray.includes(item)) {
         alert(`Product not found: ${item}`);
         return;
+      } else {
+        alert(`Product found: ${item}`);
+        return;
       }
     });
   }, [uniqueArray]);

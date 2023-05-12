@@ -44,13 +44,14 @@ const App = () => {
   const displayProduct = productDetails.filter((val) =>
     uniqueArray.includes(val.barcode)
   );
-
   useEffect(() => {
-    displayProduct.forEach((item) =>
-      item.barcode === scannedCode
-        ? notify('Product already listed')
-        : notify('Product not found')
-    );
+    displayProduct.length !== 0
+      ? displayProduct.forEach((item) =>
+          item.barcode === scannedCode
+            ? notify('Product already listed')
+            : notify('Product not found')
+        )
+      : notify('Product not found');
   }, [scannedCode]);
   // if (item.barcode === scannedCode) {
   //   notify('Product already listed');
@@ -98,7 +99,6 @@ const App = () => {
                   setArray={setArray}
                   array={array}
                   setScannedCode={setScannedCode}
-                  notify={notify}
                 />
               ) : (
                 <section className='max-w-xl px-4 lg:px-4 justify-center'>

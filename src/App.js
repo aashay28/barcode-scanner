@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Scanner from './Scanner';
 import productDetails from './database/barcode.json';
 
@@ -14,7 +14,15 @@ const App = () => {
   const displayProduct = productDetails.filter((val) =>
     uniqueArray.includes(val.barcode)
   );
-
+  useEffect(() => {
+    displayProduct.forEach((item) => {
+      if (uniqueArray.includes(item)) {
+        alert(`Available item: ${item}`);
+      } else {
+        alert(`Product not found: ${item}`);
+      }
+    });
+  }, [uniqueArray]);
   return (
     <>
       <div className='h-screen w-full bg-white relative flex '>

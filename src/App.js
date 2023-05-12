@@ -44,7 +44,13 @@ const App = () => {
   const displayProduct = productDetails.filter((val) =>
     uniqueArray.includes(val.barcode)
   );
-
+  useEffect(() => {
+    displayProduct.forEach((item) => {
+      if (item.barcode !== scannedCode) {
+        return notify('Product not found');
+      }
+    });
+  }, [scannedCode]);
   useEffect(() => {
     displayProduct.forEach((item) => {
       if (uniqueArray.includes(item.barcode)) {
@@ -52,13 +58,7 @@ const App = () => {
       }
     });
   }, [uniqueArray]);
-  useEffect(() => {
-    displayProduct.forEach((item) => {
-      if (item.barcode !== scannedCode) {
-        notify('Product not found');
-      }
-    });
-  }, [scannedCode]);
+
   return (
     <>
       <Toaster />

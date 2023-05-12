@@ -31,7 +31,6 @@ const Scanner = ({ setArray, array, setScannedCode }) => {
 
     Quagga.onDetected((data) => {
       setScannedCode(data.codeResult.code);
-
       if (!array.includes(data.codeResult.code)) {
         setArray((prevState) => [...prevState, data.codeResult.code]);
       }

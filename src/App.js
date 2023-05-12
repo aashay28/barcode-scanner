@@ -45,11 +45,10 @@ const App = () => {
     uniqueArray.includes(val.barcode)
   );
   useEffect(() => {
-    if (displayProduct.length === 0) notify('Product not found');
     displayProduct.forEach((item) =>
       item.barcode === scannedCode
-        ? notify('Product has been listed')
-        : notify('Product not found')
+        ? notify('Product has been listed.')
+        : notify('Product not found.')
     );
   }, [displayProduct, scannedCode]);
 

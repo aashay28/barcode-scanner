@@ -49,11 +49,11 @@ const App = () => {
       if (uniqueArray.includes(item.barcode)) {
         notify('Product already listed');
       }
-      if (!uniqueArray.includes(item.barcode)) {
+      if (!array.includes(item.barcode)) {
         notify('Product not found');
       }
     });
-  }, [array]);
+  }, [uniqueArray]);
   return (
     <>
       <Toaster />

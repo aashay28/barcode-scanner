@@ -45,14 +45,12 @@ const App = () => {
     uniqueArray.includes(val.barcode)
   );
   useEffect(() => {
-    displayProduct.length !== 0
-      ? displayProduct.forEach((item) =>
-          item.barcode === scannedCode
-            ? notify('Product already listed')
-            : notify('Product not found')
-        )
-      : notify('Product not found');
-  }, [scannedCode]);
+    displayProduct.forEach((item) =>
+      item.barcode === scannedCode
+        ? notify('Product already listed')
+        : notify('Product not found')
+    );
+  }, [displayProduct, scannedCode]);
   // if (item.barcode === scannedCode) {
   //   notify('Product already listed');
   //   return;

@@ -44,21 +44,18 @@ const App = () => {
   const displayProduct = productDetails.filter((val) =>
     uniqueArray.includes(val.barcode)
   );
+
   useEffect(() => {
     displayProduct.forEach((item) => {
       if (item.barcode !== scannedCode) {
-        return notify('Product not found');
+        notify('Product not found');
       }
-    });
-  }, [scannedCode]);
-  useEffect(() => {
-    displayProduct.forEach((item) => {
       if (uniqueArray.includes(item.barcode)) {
         notify('Product already listed');
       }
     });
-  }, [uniqueArray]);
-
+  }, [uniqueArray, scannedCode]);
+  useEffect(() => {}, [scannedCode]);
   return (
     <>
       <Toaster />

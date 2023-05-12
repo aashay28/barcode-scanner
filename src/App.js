@@ -29,7 +29,7 @@ const notify = (message) =>
         </div>
       </div>
     ),
-    { id: 'unique-notification', position: 'top-right', duration: 600 }
+    { id: 'unique-notification', position: 'top-right', duration: 1000 }
   );
 const App = () => {
   const [showScanner, setShowScanner] = useState(false);
@@ -47,25 +47,10 @@ const App = () => {
   useEffect(() => {
     displayProduct.forEach((item) =>
       item.barcode === scannedCode
-        ? notify('Product already listed')
+        ? notify('Product has been listed')
         : notify('Product not found')
     );
   }, [displayProduct, scannedCode]);
-  // if (item.barcode === scannedCode) {
-  //   notify('Product already listed');
-  //   return;
-  // }
-  // if (item.barcode !== scannedCode) {
-  //   notify('Product not found');
-  //   return;
-  // }
-  // useEffect(() => {
-  //   displayProduct.forEach((item) => {
-  //     if (uniqueArray.includes(item.barcode)) {
-  //       notify('Product already listed');
-  //     }
-  //   });
-  // }, [uniqueArray]);
 
   return (
     <>

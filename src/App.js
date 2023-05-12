@@ -45,16 +45,20 @@ const App = () => {
     uniqueArray.includes(val.barcode)
   );
   useEffect(() => {
-    displayProduct.forEach((item) => {
-      if (item.barcode !== scannedCode) {
-        notify('Product not found');
-      } else if (item.barcode === scannedCode) {
-        notify('Product already listed');
-      } else {
-        notify('List is Empty');
-      }
-    });
+    displayProduct.forEach((item) =>
+      item.barcode === scannedCode
+        ? notify('Product already listed')
+        : notify('Product not found')
+    );
   }, [scannedCode]);
+  // if (item.barcode === scannedCode) {
+  //   notify('Product already listed');
+  //   return;
+  // }
+  // if (item.barcode !== scannedCode) {
+  //   notify('Product not found');
+  //   return;
+  // }
   // useEffect(() => {
   //   displayProduct.forEach((item) => {
   //     if (uniqueArray.includes(item.barcode)) {

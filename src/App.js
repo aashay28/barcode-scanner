@@ -45,6 +45,9 @@ const App = () => {
     uniqueArray.includes(val.barcode)
   );
   useEffect(() => {
+    if (displayProduct.length === 0) {
+      notify('Product not found');
+    }
     displayProduct.forEach((item) => {
       if (item.barcode !== scannedCode) {
         notify('Product not found');

@@ -51,13 +51,13 @@ const App = () => {
       }
     });
   }, [scannedCode]);
-  useEffect(() => {
-    displayProduct.forEach((item) => {
-      if (uniqueArray.includes(item.barcode)) {
-        notify('Product already listed');
-      }
-    });
-  }, [uniqueArray]);
+  // useEffect(() => {
+  //   displayProduct.forEach((item) => {
+  //     if (uniqueArray.includes(item.barcode)) {
+  //       notify('Product already listed');
+  //     }
+  //   });
+  // }, [uniqueArray]);
 
   return (
     <>

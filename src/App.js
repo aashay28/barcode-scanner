@@ -8,31 +8,30 @@ import toast, { Toaster } from 'react-hot-toast';
 import { MdOutlineClose } from 'react-icons/md';
 import { HiAnnotation } from 'react-icons/hi';
 import styles from './Notify.module.css';
-const App = () => {
-  const notify = (message) =>
-    toast.custom(
-      (t) => (
-        <div
-          className={classNames([
-            styles.notificationWrapper,
-            t.visible ? 'top-0' : '-top-96',
-          ])}
-        >
-          <div className={styles.iconWrapper}>
-            <HiAnnotation />
-          </div>
-          <div className={styles.contentWrapper}>
-            <h1>{message}</h1>
-            <p>Please scan the other barcode to list details</p>
-          </div>
-          <div className={styles.closeIcon} onClick={() => toast.dismiss(t.id)}>
-            <MdOutlineClose />
-          </div>
+const notify = (message) =>
+  toast.custom(
+    (t) => (
+      <div
+        className={classNames([
+          styles.notificationWrapper,
+          t.visible ? 'top-0' : '-top-96',
+        ])}
+      >
+        <div className={styles.iconWrapper}>
+          <HiAnnotation />
         </div>
-      ),
-      { id: 'unique-notification', position: 'top-right', duration: 600 }
-    );
-
+        <div className={styles.contentWrapper}>
+          <h1>{message}</h1>
+          <p>Please scan the other barcode to list details</p>
+        </div>
+        <div className={styles.closeIcon} onClick={() => toast.dismiss(t.id)}>
+          <MdOutlineClose />
+        </div>
+      </div>
+    ),
+    { id: 'unique-notification', position: 'top-right', duration: 600 }
+  );
+const App = () => {
   const [showScanner, setShowScanner] = useState(false);
   const [array, setArray] = useState([]);
   const uniqueArray = [...new Set(array)];
@@ -55,6 +54,7 @@ const App = () => {
     displayProduct.forEach((item) => {
       if (!array.includes(item.barcode)) {
         notify('Product not found');
+        alert('no no no');
       }
     });
   }, [array]);

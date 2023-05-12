@@ -34,6 +34,8 @@ const notify = (message) =>
 const App = () => {
   const [showScanner, setShowScanner] = useState(false);
   const [array, setArray] = useState([]);
+  const [scannedCode, setScannedCode] = useState('');
+
   const uniqueArray = [...new Set(array)];
 
   const handleStartButtonClick = () => {
@@ -52,12 +54,11 @@ const App = () => {
   }, [uniqueArray]);
   useEffect(() => {
     displayProduct.forEach((item) => {
-      if (!array.includes(item.barcode)) {
+      if (item.barcode !== scannedCode) {
         notify('Product not found');
-        alert('no no no');
       }
     });
-  }, [array]);
+  }, [scannedCode]);
   return (
     <>
       <Toaster />
@@ -84,7 +85,11 @@ const App = () => {
           <main className='max-w-full h-full flex flex-col md:flex-row lg:flex-row relative overflow-hidden mt-14 m-7'>
             <div className='rounded-lg flex-shrink-0 flex-grow  p-2 justify-center items-center  w-80 lg:w-10'>
               {showScanner ? (
-                <Scanner setArray={setArray} array={array} />
+                <Scanner
+                  setArray={setArray}
+                  array={array}
+                  setScannedCode={setScannedCode}
+                />
               ) : (
                 <section className='max-w-xl px-4 lg:px-4 justify-center'>
                   <div className='w-full bg-gray-900 rounded-lg sahdow-lg p-2 lg:p-12 flex flex-col justify-center items-center'>

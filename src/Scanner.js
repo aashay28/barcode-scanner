@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Quagga from 'quagga';
 
-const Scanner = ({ setArray, array }) => {
+const Scanner = ({ setArray, array, setScannedCode }) => {
   useEffect(() => {
     Quagga.init(
       {
@@ -30,7 +30,10 @@ const Scanner = ({ setArray, array }) => {
     );
 
     Quagga.onDetected((data) => {
-      setArray((prevState) => [...prevState, data.codeResult.code]);
+      setScannedCode(data.codeResult.code);
+      if (!array.includes(data.codeResult.code)) {
+        setArray((prevState) => [...prevState, data.codeResult.code]);
+      }
     });
 
     // return () => {

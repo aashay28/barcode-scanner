@@ -45,11 +45,12 @@ const App = () => {
   );
 
   useEffect(() => {
-    displayProduct.map((item) => {
+    displayProduct.forEach((item) => {
       if (uniqueArray.includes(item.barcode)) {
-        return notify('Product already listed');
-      } else {
-        return notify('Product not found');
+        notify('Product already listed');
+      }
+      if (!uniqueArray.includes(item.barcode)) {
+        notify('Product not found');
       }
     });
   }, [array]);

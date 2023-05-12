@@ -30,7 +30,7 @@ const App = () => {
           </div>
         </div>
       ),
-      { id: 'unique-notification', position: 'top-right' }
+      { id: 'unique-notification', position: 'top-right', duration: 600 }
     );
 
   const [showScanner, setShowScanner] = useState(false);
@@ -43,7 +43,7 @@ const App = () => {
   const displayProduct = productDetails.filter((val) =>
     uniqueArray.includes(val.barcode)
   );
-  notify();
+
   useEffect(() => {
     displayProduct.forEach((item) => {
       if (uniqueArray.includes(item.barcode)) {

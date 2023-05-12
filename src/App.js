@@ -16,10 +16,9 @@ const App = () => {
   );
   useEffect(() => {
     displayProduct.forEach((item) => {
-      if (uniqueArray.includes(item)) {
-        alert(`Available item: ${item}`);
-      } else {
+      if (!uniqueArray.includes(item)) {
         alert(`Product not found: ${item}`);
+        return;
       }
     });
   }, [uniqueArray]);

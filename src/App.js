@@ -49,11 +49,15 @@ const App = () => {
       if (uniqueArray.includes(item.barcode)) {
         notify('Product already listed');
       }
+    });
+  }, [uniqueArray]);
+  useEffect(() => {
+    displayProduct.forEach((item) => {
       if (!array.includes(item.barcode)) {
         notify('Product not found');
       }
     });
-  }, [uniqueArray, array]);
+  }, [array]);
   return (
     <>
       <Toaster />

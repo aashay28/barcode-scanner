@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Quagga from 'quagga';
 
-const Scanner = ({ setArray, array, setScannedCode }) => {
+const Scanner = ({ setArray, array, setScannedCode, notify }) => {
   useEffect(() => {
     Quagga.init(
       {
@@ -31,8 +31,12 @@ const Scanner = ({ setArray, array, setScannedCode }) => {
 
     Quagga.onDetected((data) => {
       setScannedCode(data.codeResult.code);
+
       if (!array.includes(data.codeResult.code)) {
         setArray((prevState) => [...prevState, data.codeResult.code]);
+      }
+      if (array.length === 0) {
+        notify('No product found');
       }
     });
 

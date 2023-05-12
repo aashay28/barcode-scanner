@@ -3,7 +3,36 @@ import React, { useEffect, useState } from 'react';
 import Scanner from './Scanner';
 import productDetails from './database/barcode.json';
 
+import classNames from 'classnames';
+import toast, { Toaster } from 'react-hot-toast';
+import { MdOutlineClose } from 'react-icons/md';
+import { HiAnnotation } from 'react-icons/hi';
+import styles from './Notify.module.css';
 const App = () => {
+  const notify = () =>
+    toast.custom(
+      (t) => (
+        <div
+          className={classNames([
+            styles.notificationWrapper,
+            t.visible ? 'top-0' : '-top-96',
+          ])}
+        >
+          <div className={styles.iconWrapper}>
+            <HiAnnotation />
+          </div>
+          <div className={styles.contentWrapper}>
+            <h1>Product not found</h1>
+            <p>Please scan the other barcode to list details</p>
+          </div>
+          <div className={styles.closeIcon} onClick={() => toast.dismiss(t.id)}>
+            <MdOutlineClose />
+          </div>
+        </div>
+      ),
+      { id: 'unique-notification', position: 'top-right' }
+    );
+
   const [showScanner, setShowScanner] = useState(false);
   const [array, setArray] = useState([]);
   const uniqueArray = [...new Set(array)];
@@ -14,20 +43,21 @@ const App = () => {
   const displayProduct = productDetails.filter((val) =>
     uniqueArray.includes(val.barcode)
   );
+  notify();
   useEffect(() => {
     displayProduct.forEach((item) => {
-      console.log('item', item);
       if (uniqueArray.includes(item.barcode)) {
-        alert(`Product found: ${item.barcode}`);
+        notify();
         return;
       } else {
-        alert(`Product not found: ${item.barcode}`);
+        notify();
         return;
       }
     });
   }, [uniqueArray]);
   return (
     <>
+      <Toaster />
       <div className='h-screen w-full bg-white relative flex '>
         <aside className='h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white'>
           <div className='h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer'>

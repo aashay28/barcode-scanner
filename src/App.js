@@ -53,7 +53,7 @@ const App = () => {
         notify('Product not found');
       }
     });
-  }, [uniqueArray]);
+  }, [uniqueArray, array]);
   return (
     <>
       <Toaster />

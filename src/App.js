@@ -16,11 +16,12 @@ const App = () => {
   );
   useEffect(() => {
     displayProduct.forEach((item) => {
-      if (!uniqueArray.includes(item)) {
-        alert(`Product not found: ${item}`);
+      console.log('item', item);
+      if (uniqueArray.includes(item.barcode)) {
+        alert(`Product found: ${item.barcode}`);
         return;
       } else {
-        alert(`Product found: ${item}`);
+        alert(`Product not found: ${item.barcode}`);
         return;
       }
     });
